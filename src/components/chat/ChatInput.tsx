@@ -3,6 +3,7 @@ import { Send, Mic, Image, Smile, Paperclip, X, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useVoiceRecorder } from "@/hooks/useVoiceRecorder";
+import EmojiPicker, { Theme } from "emoji-picker-react";
 
 interface ChatInputProps {
   onSendMessage: (content: string, type?: "text" | "image") => void;
@@ -20,7 +21,20 @@ export const ChatInput = ({
   isGenerating,
 }: ChatInputProps) => {
   const [message, setMessage] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const emojiPickerRef = useRef<HTMLDivElement>(null);
+
+  // Close emoji picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target as Node)) {
+        setShowEmojiPicker(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const {
     isRecording,
@@ -53,6 +67,11 @@ export const ChatInput = ({
       e.preventDefault();
       handleSubmit();
     }
+  };
+
+  const handleEmojiClick = (emojiData: { emoji: string }) => {
+    setMessage((prev) => prev + emojiData.emoji);
+    textareaRef.current?.focus();
   };
 
   const formatDuration = (seconds: number) => {
@@ -102,12 +121,33 @@ export const ChatInput = ({
   }
 
   return (
-    <div className="px-3 py-2 bg-card border-t border-border">
+    <div className="px-3 py-2 bg-card border-t border-border relative">
+      {/* Emoji Picker Popup */}
+      {showEmojiPicker && (
+        <div 
+          ref={emojiPickerRef}
+          className="absolute bottom-full left-0 mb-2 z-50"
+        >
+          <EmojiPicker
+            onEmojiClick={handleEmojiClick}
+            theme={Theme.DARK}
+            width={320}
+            height={400}
+            searchPlaceHolder="Search emoji..."
+            previewConfig={{ showPreview: false }}
+          />
+        </div>
+      )}
+      
       <div className="flex items-end gap-2">
         <Button
           variant="ghost"
           size="icon"
-          className="text-muted-foreground hover:text-foreground shrink-0"
+          onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+          className={cn(
+            "text-muted-foreground hover:text-foreground shrink-0",
+            showEmojiPicker && "text-primary"
+          )}
         >
           <Smile className="w-5 h-5" />
         </Button>
