@@ -14,7 +14,80 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      form_submissions: {
+        Row: {
+          created_at: string
+          customer_email: string | null
+          customer_name: string | null
+          customer_phone: string | null
+          form_data: Json
+          form_name: string
+          id: string
+          processed_at: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          customer_phone?: string | null
+          form_data?: Json
+          form_name?: string
+          id?: string
+          processed_at?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          customer_phone?: string | null
+          form_data?: Json
+          form_name?: string
+          id?: string
+          processed_at?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      notification_logs: {
+        Row: {
+          created_at: string
+          error_message: string | null
+          id: string
+          notification_type: string
+          recipient: string
+          status: string
+          submission_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          notification_type: string
+          recipient: string
+          status?: string
+          submission_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          notification_type?: string
+          recipient?: string
+          status?: string
+          submission_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notification_logs_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "form_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
