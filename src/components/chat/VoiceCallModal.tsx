@@ -22,7 +22,7 @@ export const VoiceCallModal = ({ isOpen, onClose }: VoiceCallModalProps) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [callDuration, setCallDuration] = useState(0);
   const chatRef = useRef<RealtimeChat | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (isOpen && !isConnected && !isConnecting) {
