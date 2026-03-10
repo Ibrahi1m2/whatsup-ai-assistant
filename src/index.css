@@ -2,97 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 225 22% 8%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
 
-    --card: 225 18% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
 
-    --popover: 225 18% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
 
-    --primary: 142 70% 45%;
+    --primary: 16 90% 54%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 225 18% 18%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 220 20% 15%;
 
-    --muted: 225 15% 20%;
-    --muted-foreground: 225 10% 55%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 142 70% 45%;
+    --accent: 162 63% 41%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 225 15% 20%;
-    --input: 225 15% 20%;
-    --ring: 142 70% 45%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 16 90% 54%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* WhatsApp specific colors */
-    --whatsapp-green: 142 70% 45%;
-    --whatsapp-dark-green: 142 70% 35%;
-    --whatsapp-teal: 169 100% 36%;
-    --whatsapp-light-green: 142 70% 90%;
-    --chat-bg: 225 20% 6%;
-    --message-out: 142 40% 20%;
-    --message-in: 225 18% 15%;
-    --typing-indicator: 142 70% 45%;
+    --thaagam-orange: 16 90% 54%;
+    --thaagam-dark: 220 25% 12%;
+    --thaagam-green: 162 63% 41%;
+    --thaagam-yellow: 45 100% 51%;
+    --thaagam-light-bg: 30 50% 97%;
+    --thaagam-warm-gray: 25 10% 60%;
 
-    --sidebar-background: 225 22% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 142 70% 45%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 16 90% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 225 18% 16%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 225 15% 18%;
-    --sidebar-ring: 142 70% 45%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 16 90% 54%;
   }
 
   .dark {
-    --background: 225 22% 8%;
+    --background: 220 25% 8%;
     --foreground: 0 0% 98%;
-
-    --card: 225 18% 12%;
+    --card: 220 20% 12%;
     --card-foreground: 0 0% 98%;
-
-    --popover: 225 18% 12%;
+    --popover: 220 20% 12%;
     --popover-foreground: 0 0% 98%;
-
-    --primary: 142 70% 45%;
+    --primary: 16 90% 54%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 225 18% 18%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 225 15% 20%;
-    --muted-foreground: 225 10% 55%;
-
-    --accent: 142 70% 45%;
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 162 63% 41%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 225 15% 20%;
-    --input: 225 15% 20%;
-    --ring: 142 70% 45%;
-
-    --sidebar-background: 225 22% 10%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 16 90% 54%;
+    --sidebar-background: 220 25% 10%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary: 16 90% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 225 18% 16%;
+    --sidebar-accent: 220 18% 16%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 225 15% 18%;
-    --sidebar-ring: 142 70% 45%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 16 90% 54%;
   }
 }
 
@@ -102,8 +90,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
   }
 }
 
@@ -112,81 +104,39 @@
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted)) transparent;
   }
-  
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--muted));
-    border-radius: 3px;
-  }
 }
 
-/* Typing animation */
-@keyframes typing-dot {
-  0%, 60%, 100% {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-  30% {
-    transform: translateY(-4px);
-    opacity: 1;
-  }
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
-.typing-dot {
-  animation: typing-dot 1.4s ease-in-out infinite;
-}
-
-.typing-dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing-dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-/* Pulse animation for recording */
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-.pulse-ring {
-  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-}
-
-/* Message appear animation */
-@keyframes message-appear {
+/* Animations */
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.95);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-.message-appear {
-  animation: message-appear 0.3s ease-out forwards;
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* Chat background pattern */
-.chat-pattern {
-  background-color: hsl(var(--chat-bg));
-  background-image: 
-    radial-gradient(circle at 20% 80%, hsl(var(--whatsapp-green) / 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, hsl(var(--whatsapp-teal) / 0.03) 0%, transparent 50%);
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-count-up {
+  animation: count-up 0.5s ease-out forwards;
+}
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, hsl(var(--thaagam-dark) / 0.7) 0%, hsl(var(--thaagam-dark) / 0.3) 100%);
 }

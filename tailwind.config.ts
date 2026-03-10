@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,6 +51,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        thaagam: {
+          orange: "hsl(var(--thaagam-orange))",
+          dark: "hsl(var(--thaagam-dark))",
+          green: "hsl(var(--thaagam-green))",
+          yellow: "hsl(var(--thaagam-yellow))",
+          "light-bg": "hsl(var(--thaagam-light-bg))",
+          "warm-gray": "hsl(var(--thaagam-warm-gray))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -59,17 +68,6 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
-        },
-        whatsapp: {
-          green: "hsl(var(--whatsapp-green))",
-          "dark-green": "hsl(var(--whatsapp-dark-green))",
-          teal: "hsl(var(--whatsapp-teal))",
-          "light-green": "hsl(var(--whatsapp-light-green))",
-        },
-        chat: {
-          bg: "hsl(var(--chat-bg))",
-          "message-out": "hsl(var(--message-out))",
-          "message-in": "hsl(var(--message-in))",
         },
       },
       borderRadius: {
@@ -86,15 +84,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        shimmer: "shimmer 2s linear infinite",
       },
     },
   },
